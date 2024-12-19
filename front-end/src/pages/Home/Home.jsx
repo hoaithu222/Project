@@ -8,9 +8,28 @@ export default function Home() {
     <div className="w-full  bg-slate-200">
       <CategoryList />
       <BannerProduct />
-      <HorizontalCardProduct category={"Áo"} heading={"Top's Clothers"} />
+      <HorizontalCardProduct
+        category={"Áo"}
+        heading={"The most popular shirts"}
+      />
 
-      <VerticalCardProduct category={"Đầm"} heading={"Những mẫu đầm hót"} />
+      <VerticalCardProduct
+        category={"Đầm"}
+        heading={"The most popular dresses"}
+      />
+      <HorizontalCardProduct
+        category={"Quần"}
+        heading={"The most popular pants"}
+      />
+
+      <VerticalCardProduct
+        category={"Áo Khoác"}
+        heading={"The most popular jackets"}
+      />
+      <HorizontalCardProduct
+        category={"Chân váy"}
+        heading={"The most popular skirts"}
+      />
     </div>
   );
 }

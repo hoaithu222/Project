@@ -16,7 +16,7 @@ export default function Login() {
     password: "",
   });
   const navigate = useNavigate();
-  const { fetchUserDetails } = useContext(Context);
+  const { fetchUserDetails, fetchUserAddToCard } = useContext(Context);
 
   const handleChangeValue = (e) => {
     setData({
@@ -49,6 +49,7 @@ export default function Login() {
         });
         navigate("/");
         fetchUserDetails();
+        fetchUserAddToCard();
       } else {
         toast.error(dataApi.message);
       }

@@ -1,6 +1,7 @@
 
 
 const backendDomain = "http://localhost:8080";
+// const backendDomain = import.meta.env.VITE_SERVER_API;
 
 const SummaryApi = {
   signUp: {
@@ -47,6 +48,44 @@ const SummaryApi = {
     url: `${backendDomain}/api/category-product`,
     method: "post"
   },
+  getProductDetail: {
+    url: `${backendDomain}/api/product-details`,
+    method: "post"
+  },
+  addToCardProduct: {
+    url: `${backendDomain}/api/add-card`,
+    method: "post"
+  },
+  getCard: {
+    url: `${backendDomain}/api/get-card`,
+    method: "get"
+  },
+  addToCardViewProduct: {
+    url: `${backendDomain}/api/view-card-product`,
+    method: "get"
+  },
+  updateCardProduct: {
+    url: `${backendDomain}/api/update-card`,
+    method: "post"
+  },
+  deleteCardProduct: {
+    url: `${backendDomain}/api/delete-card-product`,
+    method: "post"
+  },
+  searchProduct: {
+    url: `${backendDomain}/api/search`,
+    method: "get"
+
+  },
+  filterProduct: {
+    url: `${backendDomain}/api/filter-product`,
+    method: "post"
+
+  },
+  payment: {
+    url: `${backendDomain}/api/checkout`,
+    method: "post"
+  }
 };
 
 export default SummaryApi;

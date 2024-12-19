@@ -9,6 +9,12 @@ import AllUser from "../pages/AllUser/AllUser";
 import AllProduct from "../pages/AllProduct/AllProduct";
 
 import CategoryProducts from "../pages/CategoryProducts/CategoryProducts";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import Cart from "../pages/Cart/Cart";
+import SearchProduct from "../pages/SearchProduct/SearchProduct";
+import Success from "../pages/Success/Success";
+import Cancel from "../pages/Cancel/Cancel";
+import OrderPage from "../pages/OrderPage/OrderPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +38,31 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "product-category/:categoryName",
+        path: "success",
+        element: <Success />,
+      },
+      {
+        path: "cancel",
+        element: <Cancel />,
+      },
+      {
+        path: "order",
+        element: <OrderPage />,
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetails />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "search",
+        element: <SearchProduct />,
+      },
+      {
+        path: "product-category",
         element: <CategoryProducts />,
       },
       {

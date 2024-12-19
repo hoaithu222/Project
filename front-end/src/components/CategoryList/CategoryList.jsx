@@ -24,7 +24,7 @@ export default function CategoryList() {
     }
   };
 
-  const categoryLoading = new Array(13).fill(null);
+  const categoryLoading = new Array(5).fill(null);
 
   useEffect(() => {
     getCategory();
@@ -32,7 +32,7 @@ export default function CategoryList() {
 
   return (
     <div className="container mx-auto p-4 flex justify-center">
-      <div className="flex items-center gap-6 overflow-x-auto scroll-none">
+      <div className="flex items-center gap-10 overflow-x-auto scroll-none">
         {loading
           ? categoryLoading.map((_, index) => (
               <div
@@ -44,7 +44,7 @@ export default function CategoryList() {
               <Link
                 key={index}
                 className="flex flex-col items-center cursor-pointer group"
-                to={"/product-category/" + product?.category}
+                to={"/product-category?category=" + product?.category}
               >
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden p-4 bg-gradient-to-br from-indigo-300 via-pink-300 to-purple-300 shadow-md transition-transform group-hover:scale-110">
                   <img
