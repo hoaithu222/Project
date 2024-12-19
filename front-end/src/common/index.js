@@ -1,7 +1,12 @@
 
 
+<<<<<<< HEAD
 const backendDomain = "http://localhost:8080";
 // const backendDomain = import.meta.env.VITE_SERVER_API;
+=======
+// const backendDomain = "http://localhost:8080";
+const backendDomain = import.meta.env.VITE_SERVER_API;
+>>>>>>> 69b08d0bf38153fd3e96714de60df9a5d9ec18f7
 
 const SummaryApi = {
   signUp: {
