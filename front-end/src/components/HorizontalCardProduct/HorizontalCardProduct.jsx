@@ -62,7 +62,7 @@ export default function HorizontalCardProduct({ category, heading }) {
           ? loadingList.map((_, index) => (
               <div
                 key={index}
-                className="w-full min-w-[280px] bg-gray-100 md:min-w-[360px] max-w-[280px] md:max-w-[360px] h-36 shadow-lg p-1 animate-pulse rounded-lg"
+                className="w-full min-w-[280px] bg-gray-100 md:min-w-[360px] max-w-[280px] md:max-w-[360px] h-36 shadow-lg p-1 animate-pulse rounded-lg "
               >
                 <div className="bg-gray-200 h-full w-full flex flex-col gap-2 p-4">
                   <div className="h-16 bg-gray-300 rounded"></div>
@@ -76,7 +76,7 @@ export default function HorizontalCardProduct({ category, heading }) {
               return (
                 <Link
                   to={`product/${product._id}`}
-                  className={`w-full min-w-[280px] bg-white md:min-w-[360px] max-w-[280px] md:max-w-[360px] h-36 shadow-lg p-1 ${colors.gradients.cyanToIndigo} rounded-lg`}
+                  className={`w-full min-w-[280px] bg-white md:min-w-[360px] max-w-[280px] md:max-w-[360px] h-36 shadow-lg p-1 ${colors.gradients.cyanToIndigo} rounded-lg `}
                   onClick={scrollTop}
                   key={index + 1}
                 >

@@ -23,7 +23,6 @@ export default function AllUser() {
     const data = await response.json();
 
     if (data.success) {
-      toast.success(data.message);
       setAllUser(data.data);
     }
   };

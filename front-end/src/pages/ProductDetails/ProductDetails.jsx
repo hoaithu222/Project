@@ -72,7 +72,7 @@ export default function ProductDetails() {
     setZoomImage(false);
   };
   return (
-    <div className="container mx-auto p-4 mt-7">
+    <div className="container mx-auto p-4 mt-7 pb-14">
       <div className="min-h-[200px] flex flex-col lg:flex-row gap-10 ">
         {/* product Image */}
         <div className="h-96 flex flex-col lg:flex-row-reverse gap-4 relative">

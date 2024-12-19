@@ -39,7 +39,7 @@ export default function BannerProduct() {
   return (
     <div>
       <div className={`mx-auto container rounded p-4 `}>
-        <div className="h-72 w-full bg-slate-200 relative">
+        <div className="h-96 w-full bg-slate-200 relative">
           <div className="absolute z-10 h-full w-full flex items-center">
             <div className="flex justify-between w-full text-4xl">
               <button
