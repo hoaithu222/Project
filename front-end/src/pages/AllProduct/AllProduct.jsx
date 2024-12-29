@@ -4,11 +4,14 @@ import colors from "../../styles/custom";
 import SummaryApi from "../../common";
 import { toast } from "react-toastify";
 import AdminCartProduct from "../../components/AdminCardProduct/AdminCartProduct";
+import Loading from "../Loading";
 
 export default function AllProduct() {
   const [openUpLoadProduct, setOpenUpLoadProduct] = useState(false);
   const [allProduct, setAllProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
   const fetchAllProduct = async () => {
+    setLoading(true);
     const response = await fetch(SummaryApi.getProduct.url, {
       method: SummaryApi.getProduct.method,
     });
@@ -20,6 +23,7 @@ export default function AllProduct() {
     if (data.error) {
       toast.error(data.message);
     }
+    setLoading(false);
   };
   useEffect(() => {
     fetchAllProduct();
@@ -55,6 +59,7 @@ export default function AllProduct() {
           onLoad={() => fetchAllProduct()}
         />
       )}
+      {loading ? <Loading /> : ""}
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SummaryApi from "../../common";
 import { toast } from "react-toastify";
 import Context from "../../context";
+import LoadingBtn from "../../components/LoadingBtn";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +16,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { fetchUserDetails, fetchUserAddToCard } = useContext(Context);
 
@@ -27,6 +29,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch(SummaryApi.signIn.url, {
         method: SummaryApi.signIn.method,
@@ -56,6 +59,8 @@ export default function Login() {
     } catch (err) {
       console.error("Error:", err.message || err);
       toast.error("Vui lòng kiểm tra lại mật khẩu và email");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -115,7 +120,7 @@ export default function Login() {
               <button
                 className={` ${colors.button.gradientBluePink} mx-auto flex mt-4 hover:scale-110`}
               >
-                Login
+                {loading ? <LoadingBtn /> : "Login"}
               </button>
             </form>
             <p className="mt-5 mb-4">

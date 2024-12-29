@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import VerticalProduct from "../../components/VerticalProduct/VerticalProduct";
 import SummaryApi from "../../common";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Loading from "../Loading";
 
 export default function CategoryProducts() {
   const params = useParams();
@@ -16,12 +17,11 @@ export default function CategoryProducts() {
   urlCategoryListinArray.forEach((el) => {
     urlCategoryListinObject[el] = true;
   });
-  console.log("urlCategoryListinObject", urlCategoryListinObject);
-  console.log("urlCategoryListinArray", urlCategoryListinArray);
 
   const [selectCategory, setSelectCategory] = useState(urlCategoryListinObject);
   const [filterCategory, setFilterCategory] = useState([]);
   const [sortBy, setSortBy] = useState("");
+
   const fetchData = async () => {
     setLoading(true);
     const response = await fetch(SummaryApi.filterProduct.url, {
@@ -162,6 +162,7 @@ export default function CategoryProducts() {
           </div>
         </div>
       </div>
+      {loading && <Loading />}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import SummaryApi from "../../common";
 import { useEffect, useState, useCallback } from "react";
 import VerticalProduct from "../../components/VerticalProduct/VerticalProduct";
+import Loading from "../Loading";
 
 // Hàm debounce tự viết
 function debounce(func, delay) {
@@ -53,6 +54,7 @@ export default function SearchProduct() {
       {data.length !== 0 && !loading && (
         <VerticalProduct loading={loading} data={data} />
       )}
+      {loading && <Loading />}
     </div>
   );
 }

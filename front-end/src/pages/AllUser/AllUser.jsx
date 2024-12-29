@@ -5,6 +5,7 @@ import moment from "moment";
 import { FaEdit } from "react-icons/fa";
 import colors from "../../styles/custom";
 import ChangeUserRole from "../../components/ChangeUserRole/ChangeUserRole";
+import Loading from "../Loading";
 
 export default function AllUser() {
   const [allUser, setAllUser] = useState([]);
@@ -15,7 +16,10 @@ export default function AllUser() {
     _id: "",
     role: "",
   });
+  const [loading, setLoading] = useState(false);
+
   const fetchAllUsers = async () => {
+    setLoading(true);
     const response = await fetch(SummaryApi.allUser.url, {
       method: SummaryApi.allUser.method,
       credentials: "include",
@@ -25,6 +29,7 @@ export default function AllUser() {
     if (data.success) {
       setAllUser(data.data);
     }
+    setLoading(false);
   };
   useEffect(() => {
     fetchAllUsers();
@@ -78,6 +83,7 @@ export default function AllUser() {
       ) : (
         ""
       )}
+      {loading && <Loading />}
     </div>
   );
 }

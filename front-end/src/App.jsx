@@ -9,12 +9,15 @@ import Context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
 import "./App.css";
+import Loading from "./pages/Loading";
 
 export default function App() {
   const dispatch = useDispatch();
   const [cardProduct, setCardProduct] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const fetchUserDetails = async () => {
+    setLoading(true);
     const response = await fetch(SummaryApi.current_user.url, {
       method: SummaryApi.current_user.method,
       credentials: "include",
@@ -22,6 +25,7 @@ export default function App() {
     const data = await response.json();
     if (data.success) {
       dispatch(setUserDetails(data));
+      setLoading(false);
     }
   };
   const fetchUserAddToCard = async () => {
@@ -31,6 +35,7 @@ export default function App() {
     });
     const data = await response.json();
     console.log(data);
+    setLoading(false);
     setCardProduct(data?.data?.count);
   };
   console.log(cardProduct);
@@ -56,6 +61,7 @@ export default function App() {
           <Outlet />
         </main>
         <Footer />
+        {loading && <Loading />}
       </Context.Provider>
     </>
   );

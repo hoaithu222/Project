@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import imageTobase64 from "../../helpers/imageTobase64";
 import SummaryApi from "../../common";
 import { toast } from "react-toastify";
+import LoadingBtn from "../../components/LoadingBtn";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,6 +21,7 @@ export default function SignUp() {
     confirmPassword: "",
     profilePic: "",
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChangeValue = (e) => {
@@ -31,6 +33,7 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (data.confirmPassword === data.password) {
       const response = await fetch(SummaryApi.signUp.url, {
         method: SummaryApi.signUp.method,
@@ -43,13 +46,14 @@ export default function SignUp() {
       if (dataUser.success) {
         toast.success(dataUser.message);
         navigate("/login");
+        setLoading(false);
       } else {
         toast(dataUser.message);
       }
     } else {
       toast.error("Vui lòng check mật khẩu và confirm mật khẩu");
     }
-
+    setLoading(false);
     setData({
       name: "",
       email: "",
@@ -186,7 +190,7 @@ export default function SignUp() {
               <button
                 className={` ${colors.button.gradientBluePink} mx-auto flex mt-4 hover:scale-110`}
               >
-                Sign up
+                {loading ? <LoadingBtn /> : "Sign up"}
               </button>
             </form>
             <p className="mt-5 mb-4">
