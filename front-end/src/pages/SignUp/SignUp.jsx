@@ -47,7 +47,7 @@ export default function SignUp() {
         toast(dataUser.message);
       }
     } else {
-      toast.error("Please check password and confirm password");
+      toast.error("Vui lòng check mật khẩu và confirm mật khẩu");
     }
 
     setData({

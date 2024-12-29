@@ -55,7 +55,7 @@ export default function Login() {
       }
     } catch (err) {
       console.error("Error:", err.message || err);
-      toast.error("Login failed. Please check your inputs.");
+      toast.error("Vui lòng kiểm tra lại mật khẩu và email");
     }
   };
 
