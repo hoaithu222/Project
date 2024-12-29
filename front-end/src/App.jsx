@@ -52,7 +52,7 @@ export default function App() {
       >
         <ToastContainer position="top-center" />
         <Header className="container mx-auto" />
-        <main className="min-h-[calc(100vh-50px)] ">
+        <main className="min-h-[calc(140vh-50px)]  ">
           <Outlet />
         </main>
         <Footer />
